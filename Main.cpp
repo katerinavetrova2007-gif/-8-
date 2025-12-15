@@ -1,7 +1,73 @@
 #include <iostream>
+#include <locale>
+#include <windows.h>
+#include "../StaticLib1/GeometryLib3D.h"
+#include "../GeometryDll/GeometryDll3D.h"
 #include "../StaticLib1/GeometryLib.h"
 #include "../GeometryDll/GeometryDll.h"
 
+using namespace Geometry;
+
+void demonstrateAllFeatures() {
+    std::cout << "\n\n=== ÄÅÌÎÍÑÒÐÀÖÈß ÂÑÅÕ ÂÎÇÌÎÆÍÎÑÒÅÉ ===\n\n";
+
+    // Ïîêàçûâàåì âñå ôèãóðû
+    listAllShapes();
+
+    std::cout << "\nÏðèìåðû ðàñ÷åòîâ:\n\n";
+
+    // 2D ôèãóðû
+    std::cout << "2D ÔÈÃÓÐÛ:\n";
+    std::cout << "Êâàäðàò (ñòîðîíà=5): S=" << squareArea(5)
+        << ", P=" << squarePerimeter(5) << "\n";
+    std::cout << "Êðóã (ðàäèóñ=3): S=" << circleArea(3)
+        << ", P=" << circlePerimeter(3) << "\n\n";
+
+    // 3D ôèãóðû
+    std::cout << "3D ÔÈÃÓÐÛ:\n";
+    std::cout << "Êóá (ñòîðîíà=4): V=" << cubeVolume(4)
+        << ", S=" << cubeSurfaceArea(4) << "\n";
+    std::cout << "Ñôåðà (ðàäèóñ=2): V=" << sphereVolume(2)
+        << ", S=" << sphereSurfaceArea(2) << "\n";
+
+    // Äåìîíñòðàöèÿ êëàññîâ
+    std::cout << "\nÈÑÏÎËÜÇÎÂÀÍÈÅ ÊËÀÑÑÎÂ:\n";
+
+    Cube cube(3);
+    std::cout << "\nÎáúåêò Cube(3):\n";
+    cube.display();
+    std::cout << "Îáúåì: " << cube.volume() << "\n";
+    std::cout << "Ïëîùàäü ïîâåðõíîñòè: " << cube.surfaceArea() << "\n";
+
+    Square square(3);
+    std::cout << "\nÎáúåêò Square(3):\n";
+    square.display();
+    std::cout << "Ïëîùàäü: " << square.area() << "\n";
+    std::cout << "Ïåðèìåòð: " << square.perimeter() << "\n";
+}
+
+int main() {
+    // Íàñòðîéêà ðóññêîãî ÿçûêà
+    setlocale(LC_ALL, "Russian");
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+
+    std::cout << "==================================================\n";
+    std::cout << "   ÃÅÎÌÅÒÐÈ×ÅÑÊÈÅ ÔÈÃÓÐÛ: 2D è 3D ÐÅÀËÈÇÀÖÈß\n";
+    std::cout << "==================================================\n\n";
+
+    demonstrateAllFeatures();
+
+    std::cout << "\n\n==================================================\n";
+    std::cout << "   ÏÐÎÅÊÒ ÓÑÏÅØÍÎ ÎÁÚÅÄÈÍÅÍ!\n";
+    std::cout << "   Âåòêà feature-3d-figures ñëèÿíà ñ main\n";
+    std::cout << "==================================================\n";
+
+    std::cout << "\nÍàæìèòå Enter äëÿ âûõîäà...";
+    std::cin.get();
+
+    return 0;
+}
 int main() {
 
     setlocale(LC_ALL, "Russian");
