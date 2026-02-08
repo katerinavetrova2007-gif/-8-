@@ -1,12 +1,12 @@
 def printset(name, s):
     print(f"{name} (элементов: {len(s)}): {sorted(s)}")
 
-def f(x1, y1, x2, y2):
-    tochki = set()
+def tochki(x1, y1, x2, y2):
+    tochki_set = set()
     for x in range(x1, x2 + 1):
         for y in range(y1, y2 + 1):
-            tochki.add((x, y))
-    return tochki
+            tochki_set.add((x, y))
+    return tochki_set
 
 def input_rect(num):
     while True:
@@ -40,22 +40,17 @@ def input_rect(num):
 def main():
     print("Проверка пересечения прямоугольников")
 
-    # Ввод прямоугольников
     x1, y1, x2, y2 = input_rect(1)
     x3, y3, x4, y4 = input_rect(2)
 
-    # Создание множеств точек
     A = tochki(x1, y1, x2, y2)
     B = tochki(x3, y3, x4, y4)
 
-    print("\n" + "-" * 50)
     printset("Множество A", A)
     printset("Множество B", B)
 
-    # Нахождение пересечения
-    intersection = A.intersection(B)
+    intersection = A.intersection(B)#пересечение
 
-    print("\n" + "-" * 50)
     if intersection:
         print("Прямоугольники ПЕРЕСЕКАЮТСЯ")
         printset("Общие точки", intersection)
